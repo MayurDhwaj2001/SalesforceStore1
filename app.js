@@ -67,8 +67,8 @@ app.controller("ProductController", function ($scope, $http, $window) {
     $window.sessionStorage.removeItem("sf_instance_url");
 
     // Redirect to Salesforce logout
-    $window.location.href = `${loginUrl}/secur/logout.jsp?retUrl=${encodeURIComponent(
-      redirectUri
-    )}`;
+    // $window.location.href = `${loginUrl}/secur/logout.jsp?retUrl=${encodeURIComponent(
+    //   redirectUri
+    // )}`;
   };
 });
