@@ -35,7 +35,7 @@ app.controller("ProductController", function ($scope, $http, $window) {
     $http
       .get(
         `${instanceUrl}/services/data/v61.0/query/?q=${encodeURIComponent(
-          "SELECT Id, Name, ProductCode FROM Product2 LIMIT 10"
+          "SELECT Id, Name, ProductCode FROM Product2"
         )}`,
         { headers: { Authorization: "Bearer " + accessToken } }
       )
