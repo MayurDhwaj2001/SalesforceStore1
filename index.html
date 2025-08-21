@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="myApp">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <title>Salesforce Store</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
 </head>
 
-<body>
-    <div class="navbar">
-        <h3>Salesforce Store</h3>
-    </div>
+<body ng-controller="ProductController">
+
+    <h1>Salesforce Products</h1>
+    <button ng-click="login()">Login with Salesforce</button>
+
+    <ul>
+        <li ng-repeat="p in products">{{p.Name}} ({{p.ProductCode}})</li>
+    </ul>
+
+    <script src="app.js"></script>
 </body>
 
 </html>
