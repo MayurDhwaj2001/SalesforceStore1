@@ -10,7 +10,9 @@
 <body ng-controller="ProductController">
 
     <h1>Salesforce Products</h1>
-    <button ng-click="login()">Login with Salesforce</button>
+    <button ng-click="login()" ng-if="!isLoggedIn">Login</button>
+    <button ng-click="logout()" ng-if="isLoggedIn">Logout</button>
+
 
     <ul>
         <li ng-repeat="p in products">{{p.Name}} ({{p.ProductCode}})</li>
