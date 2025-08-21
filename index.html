@@ -4,19 +4,41 @@
 <head>
     <meta charset="utf-8">
     <title>Salesforce Store</title>
+    <link rel="icon" type="image/x-icon" href="./assets/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
 </head>
 
 <body ng-controller="ProductController">
 
-    <h1>Salesforce Products</h1>
-    <button ng-click="login()" ng-if="!isLoggedIn">Login</button>
-    <button ng-click="logout()" ng-if="isLoggedIn">Logout</button>
+    <header class="navbar">
+        <div class="navbar-brand">
+            <img src="./assets/logo.png" alt="Logo" class="logo">
+            <span>Salesforce Store</span>
+        </div>
+        <div class="navbar-actions">
+            <button ng-click="login()" ng-if="!isLoggedIn" class="btn btn-primary">Login</button>
+            <button ng-click="logout()" ng-if="isLoggedIn" class="btn btn-secondary">Logout</button>
+        </div>
+    </header>
 
+    <main class="container" ng-if="isLoggedIn">
+        <h1>Salesforce Products</h1>
 
-    <ul>
-        <li ng-repeat="p in products">{{p.Name}} ({{p.ProductCode}})</li>
-    </ul>
+        <ul class="product-list">
+            <li ng-repeat="p in products" class="product-item">
+                <span class="product-name">{{p.Name}}</span>
+                <span class="product-code">({{p.ProductCode}})</span>
+            </li>
+        </ul>
+
+        <div ng-if="products.length === 0" class="loading-message">
+            Fetching products...
+        </div>
+    </main>
 
     <script src="app.js"></script>
 </body>
