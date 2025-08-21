@@ -127,3 +127,45 @@ h1 {
   margin-top: 20px;
   font-size: 1.1rem;
 }
+
+/* --- Responsive Design --- */
+/* Styles for screens 768px wide or smaller (tablets and phones) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack navbar items vertically */
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .navbar-brand {
+    margin-bottom: 15px; /* Add space between brand and button */
+  }
+
+  .navbar-actions {
+    width: 100%; /* Make button container take full width */
+  }
+
+  .btn {
+    width: 100%; /* Make buttons take full width */
+    text-align: center;
+  }
+
+  .container {
+    margin: 20px 15px; /* Reduce side and top margins */
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.8rem; /* Slightly smaller heading */
+  }
+
+  .product-item {
+    flex-direction: column; /* Stack product name and code */
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .product-code {
+    margin-top: 5px; /* Add a little space between name and code */
+  }
+}
