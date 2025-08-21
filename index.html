@@ -3,11 +3,12 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salesforce Store</title>
     <link rel="icon" type="image/x-icon" href="./assets/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
 </head>
@@ -25,16 +26,23 @@
         </div>
     </header>
 
+    <main class="hero-container" ng-if="!isLoggedIn">
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to the Salesforce Store</h1>
+            <p class="hero-subtitle">Access exclusive products and manage your data seamlessly. Please log in with your
+                Salesforce account to continue.</p>
+            <button ng-click="login()" class="btn btn-primary btn-large">Login with Salesforce</button>
+        </div>
+    </main>
+
     <main class="container" ng-if="isLoggedIn">
         <h1>Salesforce Products</h1>
-
         <ul class="product-list">
             <li ng-repeat="p in products" class="product-item">
                 <span class="product-name">{{p.Name}}</span>
                 <span class="product-code">({{p.ProductCode}})</span>
             </li>
         </ul>
-
         <div ng-if="products.length === 0" class="loading-message">
             Fetching products...
         </div>
